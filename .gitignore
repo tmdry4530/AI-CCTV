@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Runtime/private data; keep scaffolds and dataset yaml template
+/data/raw/*
+!/data/raw/.gitkeep
+/data/frames/*
+!/data/frames/.gitkeep
+/data/autolabels/*
+!/data/autolabels/.gitkeep
+/data/reviewed/*
+!/data/reviewed/.gitkeep
+/data/logs/*
+!/data/logs/.gitkeep
+/data/snapshots/*
+!/data/snapshots/.gitkeep
+/data/samples/*
+!/data/samples/.gitkeep
+/data/datasets/*
+!/data/datasets/.gitkeep
+!/data/datasets/ai_cctv.yaml
+!/data/datasets/ai_cctv/
+!/data/datasets/ai_cctv/images/
+!/data/datasets/ai_cctv/images/train/
+!/data/datasets/ai_cctv/images/val/
+!/data/datasets/ai_cctv/images/test/
+!/data/datasets/ai_cctv/images/train/.gitkeep
+!/data/datasets/ai_cctv/images/val/.gitkeep
+!/data/datasets/ai_cctv/images/test/.gitkeep
+!/data/datasets/ai_cctv/labels/
+!/data/datasets/ai_cctv/labels/train/
+!/data/datasets/ai_cctv/labels/val/
+!/data/datasets/ai_cctv/labels/test/
+!/data/datasets/ai_cctv/labels/train/.gitkeep
+!/data/datasets/ai_cctv/labels/val/.gitkeep
+!/data/datasets/ai_cctv/labels/test/.gitkeep
+
+# Model artifacts and training runs
+/models/*.pt
+/models/*.onnx
+/models/*.engine
+/models/*.mlpackage
+/runs/
+
+# Local/runtime state noise
+.codex/logs*.sqlite*
+.codex/*.sqlite-shm
+.codex/*.sqlite-wal
+.omx/logs/

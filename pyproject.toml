@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-cctv"
+version = "0.1.0"
+description = "Readiness-first webcam AI CCTV demo for abandoned object and theft_suspected events"
+requires-python = ">=3.11"
+dependencies = [
+  "opencv-python",
+  "ultralytics",
+  "streamlit",
+  "pandas",
+  "pyyaml",
+  "pytest",
+  "numpy",
+  "pillow",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+src = ["src", "scripts", "tools", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = []

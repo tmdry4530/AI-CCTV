@@ -1,12 +1,23 @@
 # models directory
 
-최종 시연 모델을 저장한다.
+Expected model artifacts after training:
 
 ```text
-best_demo.pt   MacBook 최종 시연용 모델
-best_s_640.pt  YOLO small 640 후보
-best_s_960.pt  YOLO small 960 후보
+best_demo.pt   selected final MacBook demo model
+best_s_640.pt  YOLO small 640 candidate
+best_s_960.pt  YOLO small 960 candidate
 ```
 
-모델 파일은 용량이 클 수 있으므로 필요 시 git에 커밋하지 않는다.
-실제 모델이 없을 때는 README와 경로만 유지한다.
+Large model files are ignored by default. Keep this README in git and copy actual weights locally
+only after training/selection.
+
+Final model selection must be based on measured MacBook demo performance, not mAP alone:
+
+1. MacBook FPS >= 10;
+2. demo scenario success >= 4/5;
+3. person recall >= 0.85;
+4. main object recall >= 0.65;
+5. false `theft_suspected` is acceptably low.
+
+Do not claim that `best_demo.pt` is validated until `scripts/validate_yolo.py` and
+`scripts/benchmark_model.py` have been run with real artifacts.
