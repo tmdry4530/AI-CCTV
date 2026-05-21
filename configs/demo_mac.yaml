@@ -33,4 +33,3 @@ tracker:
 paths:
   logs: data/logs/events.csv
   snapshots: data/snapshots
-  sample_video: data/samples/final_demo.mp4

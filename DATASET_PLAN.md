@@ -121,3 +121,32 @@ names:
   2: laptop
   3: cell_phone
 ```
+
+## 10. 현재 단계 정책: 데이터 수집은 추후 진행
+
+현재 문서팩 기준으로 실제 영상 촬영은 아직 하지 않는다. 먼저 데이터가 들어왔을 때 바로 처리할 수 있는 파이프라인을 구현한다.
+
+### 지금 필요한 산출물
+
+- `scripts/record_webcam.py`
+- `scripts/extract_frames.py`
+- `scripts/auto_label_yolo.py`
+- `tools/label_review_app.py`
+- `scripts/split_dataset.py`
+- `scripts/check_dataset.py`
+- `data/` 디렉토리 scaffold
+- dataset yaml template
+- README의 데이터 수집/학습 명령
+
+### 데이터 준비 후 수행할 산출물
+
+- raw videos
+- extracted frames
+- auto labels
+- reviewed val/test labels
+- final YOLO dataset
+- model training results
+
+### Codex 완료 조건
+
+Codex는 실제 데이터셋이 없더라도 데이터 수집/라벨링/검증 파이프라인을 구현해야 한다. 실제 mAP 수치는 데이터가 준비된 뒤에만 기록한다.

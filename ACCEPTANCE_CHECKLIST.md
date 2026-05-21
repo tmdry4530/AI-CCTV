@@ -85,3 +85,14 @@
 - [ ] identity recognition 없음
 - [ ] theft 확정 표현 없음
 - [ ] cloud upload default 없음
+
+## 데이터 준비 전 완료 기준
+
+- [ ] 실제 데이터가 없어도 모든 핵심 스크립트의 `--help`가 동작한다.
+- [ ] mock sequence 기반 이벤트 로직 테스트가 통과한다.
+- [ ] 데이터 디렉토리 구조와 README가 준비되어 있다.
+- [ ] dataset yaml template이 준비되어 있다.
+- [ ] 데이터가 없을 때 학습/검증 스크립트가 명확한 안내 메시지를 출력한다.
+- [ ] Windows RTX 4070 SUPER 학습 명령이 문서화되어 있다.
+- [ ] MacBook fallback 개발 및 최종 시연 명령이 문서화되어 있다.
+- [ ] 실제 mAP/FPS 수치는 데이터와 모델이 준비되기 전에는 완료로 표시하지 않는다.

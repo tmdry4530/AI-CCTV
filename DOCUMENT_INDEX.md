@@ -58,3 +58,8 @@
 7. Windows RTX 4070 SUPER로 학습
 8. MacBook으로 최종 시연 검증
 ```
+
+- `READINESS_FIRST_PLAN.md`: 데이터/영상 준비 전 구현 완료 기준과 후속 실행 절차
+- `docs/DATA_COLLECTION_RUNBOOK.md`: 추후 영상 촬영 절차
+- `docs/TRAINING_RUNBOOK.md`: 데이터 준비 후 RTX 4070 SUPER 학습 절차
+- `docs/DEMO_RUNBOOK.md`: MacBook 최종 시연 절차

@@ -21,3 +21,22 @@
 - FPS가 낮으면 `yolo small 640` 또는 `nano 640`으로 전환한다.
 - 도난 의심 오탐이 많으면 시연에서는 `missing_grace_seconds`와 `suspicious_min_seconds`를 늘린다.
 - cell_phone이 불안정하면 발표 핵심 객체에서 제외하고 bag 중심으로 진행한다.
+
+## R-READY-001: 실제 데이터 수집 전 과도한 완료 선언
+
+- Risk: 데이터와 영상이 아직 없는데 Codex가 학습/시연까지 완료했다고 보고할 수 있음.
+- Impact: 최종 단계에서 재작업 발생.
+- Mitigation:
+  - 데이터 준비 전 완료 기준과 데이터 준비 후 완료 기준을 분리한다.
+  - mAP, FPS, demo success는 실제 측정 전에는 `pending`으로 둔다.
+  - `READINESS_FIRST_PLAN.md`를 source of truth로 사용한다.
+
+## R-PLATFORM-002: Windows 구현 실패 시 MacBook fallback 미비
+
+- Risk: Windows 환경 문제로 구현이 막혔을 때 MacBook에서 이어받기 어렵다.
+- Impact: 개발 일정 지연.
+- Mitigation:
+  - pathlib 사용.
+  - OS별 setup 문서 분리.
+  - GPU 없는 환경에서도 테스트 통과.
+  - MacBook fallback setup을 README에 명시.

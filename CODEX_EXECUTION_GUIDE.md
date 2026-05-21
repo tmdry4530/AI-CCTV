@@ -117,3 +117,25 @@ Return findings first, ordered by severity. Do not edit files.
 - Windows 전용 경로가 들어감
 - MacBook에서 실행 불가한 의존성 추가
 - theft_detected처럼 확정 표현 사용
+
+## 9. 최신 정정 사항
+
+### Windows/MacBook 역할
+
+- Windows Desktop + RTX 4070 SUPER가 1순위 구현 및 학습 환경이다.
+- MacBook은 Windows에서 구현이 막힐 때의 대체 구현 환경이며, 최종 시연 환경이다.
+
+### 데이터/영상 정책
+
+- 영상 촬영과 최종 데이터 수집은 추후 진행한다.
+- 지금 Codex가 해야 할 일은 데이터가 들어오면 즉시 자동 라벨링, 학습, 평가, 시연이 가능한 준비 상태를 만드는 것이다.
+- 실제 데이터가 없다는 이유로 학습/검증 스크립트 구현을 생략하지 않는다.
+- 실제 데이터가 없으면 `--help`, dry-run, mock sequence test, 명확한 안내 메시지까지 구현한다.
+
+### 수정된 goal 실행 문장
+
+```text
+/goal Complete .codex/goals/ai-cctv-complete.md exactly.
+Prioritize a readiness-first implementation: actual video capture and final dataset collection will happen later, but all scripts, configs, tests, runbooks, and dry-run paths must be ready so training and demo can start immediately when data is available.
+Windows Desktop with RTX 4070 SUPER is the primary implementation/training environment. MacBook is the fallback implementation environment and final demo environment.
+```

@@ -190,6 +190,50 @@
       "depends_on": [
         "T-019"
       ]
+    },
+    {
+      "id": "T-021",
+      "title": "Prepare readiness-first runbooks and missing-data behavior",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-016",
+        "T-017"
+      ]
+    },
+    {
+      "id": "T-022",
+      "title": "Collect final videos later when environment is ready",
+      "status": "todo",
+      "owner": "human",
+      "depends_on": [
+        "T-012",
+        "T-021"
+      ]
+    },
+    {
+      "id": "T-023",
+      "title": "Run final training after dataset is ready",
+      "status": "todo",
+      "owner": "human+codex",
+      "depends_on": [
+        "T-016",
+        "T-022"
+      ]
+    },
+    {
+      "id": "T-024",
+      "title": "Run MacBook demo rehearsal after best_demo.pt exists",
+      "status": "todo",
+      "owner": "human+codex",
+      "depends_on": [
+        "T-020",
+        "T-023"
+      ]
     }
-  ]
+  ],
+  "notes": {
+    "platform_correction": "Windows Desktop with RTX 4070 SUPER is the primary implementation/training environment. MacBook is fallback implementation and final demo environment.",
+    "data_policy": "Video recording and final dataset collection will happen later. Current implementation must reach data-ready state first."
+  }
 }

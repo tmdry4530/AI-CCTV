@@ -222,3 +222,29 @@ Verification:
 - python -m pytest
 - python -m compileall src scripts tools
 ```
+
+## 추가 프롬프트: 데이터 준비 전 파이프라인 완성
+
+```text
+/prompts:executor
+Revise the project for readiness-first development.
+
+Context:
+- Actual video recording and final dataset collection will happen later.
+- Windows Desktop with RTX 4070 SUPER is the primary implementation and training environment.
+- MacBook is a fallback implementation environment and the final demo environment.
+
+Goal:
+Implement all scripts, configs, tests, and docs needed so that once videos/data are available, the project can immediately run:
+1. frame extraction
+2. auto-labeling
+3. label review
+4. dataset split/check
+5. YOLO training on RTX 4070 SUPER
+6. validation
+7. MacBook benchmark
+8. webcam or sample-video demo
+
+Do not require real dataset files for tests.
+Provide dry-run behavior or clear errors when data is missing.
+```

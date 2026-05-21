@@ -172,3 +172,34 @@ MacBook 발표 실패 가능성을 낮춘다.
 python scripts/run_video.py --source data/samples/final_demo.mp4 --config configs/demo_mac.yaml
 python scripts/run_webcam.py --config configs/demo_mac.yaml
 ```
+
+## Phase 8: Data-ready handoff
+
+### 목표
+
+영상 촬영과 데이터 수집이 나중에 시작되어도 바로 학습/평가/시연으로 이어질 수 있게 한다.
+
+### 구현 파일
+
+- `READINESS_FIRST_PLAN.md`
+- `docs/DATA_COLLECTION_RUNBOOK.md`
+- `docs/TRAINING_RUNBOOK.md`
+- `docs/DEMO_RUNBOOK.md`
+- `models/README.md`
+- `data/README.md`
+
+### 완료 기준
+
+```bash
+python scripts/record_webcam.py --help
+python scripts/extract_frames.py --help
+python scripts/auto_label_yolo.py --help
+python scripts/check_dataset.py --help
+python scripts/train_yolo.py --help
+python scripts/validate_yolo.py --help
+python scripts/benchmark_model.py --help
+```
+
+### 주의
+
+이 phase는 실제 데이터 수집을 요구하지 않는다. 대신 데이터가 준비된 직후 실행할 명령과 디렉토리 구조를 완성한다.

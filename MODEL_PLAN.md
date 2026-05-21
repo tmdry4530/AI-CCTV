@@ -99,3 +99,33 @@ evaluate
 → validate
 → benchmark on MacBook
 ```
+
+## 9. 현재 단계 정책: 학습 실행은 데이터 준비 후 진행
+
+지금 Codex가 해야 하는 것은 최종 학습을 실제로 완료하는 것이 아니라, 데이터가 준비되는 즉시 학습 가능한 상태를 만드는 것이다.
+
+### 지금 구현할 것
+
+- 학습 스크립트
+- 검증 스크립트
+- 벤치마크 스크립트
+- 모델 실험 로그 템플릿
+- `models/README.md`
+- Windows RTX 4070 SUPER 학습 명령
+- MacBook benchmark 명령
+- 데이터가 없을 때의 명확한 안내 메시지
+
+### 데이터 준비 후 실행할 것
+
+```bash
+python scripts/check_dataset.py --data data/datasets/ai_cctv.yaml
+python scripts/train_yolo.py --data data/datasets/ai_cctv.yaml --model yolo11s.pt --epochs 80 --imgsz 640 --device cuda
+python scripts/validate_yolo.py --model runs/train/ai_cctv_s_640/weights/best.pt --data data/datasets/ai_cctv.yaml
+python scripts/benchmark_model.py --model models/best_demo.pt --source 0 --imgsz 640
+```
+
+### 금지
+
+- 데이터가 없는데 임의 mAP 수치를 작성하지 않는다.
+- 최종 모델이 없는데 `best_demo.pt`가 검증됐다고 주장하지 않는다.
+- MacBook FPS를 실제 측정 없이 추정값으로 쓰지 않는다.

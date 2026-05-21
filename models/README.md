@@ -1,9 +1,12 @@
-# Models
+# models directory
 
-Place local model files here. The final MacBook demo model must be named:
+최종 시연 모델을 저장한다.
 
 ```text
-models/best_demo.pt
+best_demo.pt   MacBook 최종 시연용 모델
+best_s_640.pt  YOLO small 640 후보
+best_s_960.pt  YOLO small 960 후보
 ```
 
-Large weights should not be committed unless the project owner explicitly wants them in git. Record each candidate in `MODEL_EXPERIMENTS.md` and choose `best_demo.pt` by MacBook demo performance, not mAP alone.
+모델 파일은 용량이 클 수 있으므로 필요 시 git에 커밋하지 않는다.
+실제 모델이 없을 때는 README와 경로만 유지한다.
