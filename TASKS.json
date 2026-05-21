@@ -1,0 +1,195 @@
+{
+  "epic": "webcam-ai-cctv",
+  "status": "planned",
+  "tasks": [
+    {
+      "id": "T-000",
+      "title": "Initialize repository scaffold",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": []
+    },
+    {
+      "id": "T-001",
+      "title": "Implement pure geometry and state dataclasses",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-000"
+      ]
+    },
+    {
+      "id": "T-002",
+      "title": "Implement owner assignment logic",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-001"
+      ]
+    },
+    {
+      "id": "T-003",
+      "title": "Implement abandoned object detection",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-002"
+      ]
+    },
+    {
+      "id": "T-004",
+      "title": "Implement theft_suspected detection",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-003"
+      ]
+    },
+    {
+      "id": "T-005",
+      "title": "Add unit and mock sequence tests",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-004"
+      ]
+    },
+    {
+      "id": "T-006",
+      "title": "Implement YOLO detector wrapper",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-005"
+      ]
+    },
+    {
+      "id": "T-007",
+      "title": "Implement tracker wrapper",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-006"
+      ]
+    },
+    {
+      "id": "T-008",
+      "title": "Implement webcam/video runtime",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-007"
+      ]
+    },
+    {
+      "id": "T-009",
+      "title": "Implement OpenCV visualizer",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-008"
+      ]
+    },
+    {
+      "id": "T-010",
+      "title": "Implement event logger and snapshot writer",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-009"
+      ]
+    },
+    {
+      "id": "T-011",
+      "title": "Implement Streamlit dashboard",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-010"
+      ]
+    },
+    {
+      "id": "T-012",
+      "title": "Implement webcam recording and frame extraction scripts",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-000"
+      ]
+    },
+    {
+      "id": "T-013",
+      "title": "Implement auto-labeling script",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-012"
+      ]
+    },
+    {
+      "id": "T-014",
+      "title": "Implement label review UI",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-013"
+      ]
+    },
+    {
+      "id": "T-015",
+      "title": "Implement dataset split and checker scripts",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-014"
+      ]
+    },
+    {
+      "id": "T-016",
+      "title": "Implement train/validate/benchmark scripts",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-015"
+      ]
+    },
+    {
+      "id": "T-017",
+      "title": "Write README and demo docs",
+      "status": "todo",
+      "owner": "codex",
+      "depends_on": [
+        "T-011",
+        "T-016"
+      ]
+    },
+    {
+      "id": "T-018",
+      "title": "Collect MacBook demo data",
+      "status": "todo",
+      "owner": "human",
+      "depends_on": [
+        "T-012"
+      ]
+    },
+    {
+      "id": "T-019",
+      "title": "Train model on RTX 4070 SUPER",
+      "status": "todo",
+      "owner": "human+codex",
+      "depends_on": [
+        "T-016",
+        "T-018"
+      ]
+    },
+    {
+      "id": "T-020",
+      "title": "Validate final model on MacBook",
+      "status": "todo",
+      "owner": "human+codex",
+      "depends_on": [
+        "T-019"
+      ]
+    }
+  ]
+}

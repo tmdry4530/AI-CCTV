@@ -1,0 +1,36 @@
+camera:
+  source: 0
+  width: 1280
+  height: 720
+  fps: 15
+
+model:
+  path: models/best_demo.pt
+  device: cuda
+  imgsz: 640
+  conf_default: 0.35
+  iou: 0.5
+
+classes:
+  person: 0
+  bag: 1
+  laptop: 2
+  cell_phone: 3
+
+thresholds:
+  owner_distance_ratio: 0.15
+  owner_min_seconds: 3.0
+  abandoned_min_seconds: 5.0
+  suspicious_min_seconds: 1.5
+  missing_grace_seconds: 2.0
+  moved_distance_ratio: 0.20
+  event_cooldown_seconds: 3.0
+
+tracker:
+  type: botsort
+  fallback: bytetrack
+
+paths:
+  logs: data/logs/events.csv
+  snapshots: data/snapshots
+  sample_video: data/samples/final_demo.mp4
