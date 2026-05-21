@@ -47,7 +47,7 @@
 
 ### 기대 결과
 
-- `OWNER_REGISTERED`
+- `owner_registered`
 - object label에 owner 표시
 
 ## 5. 시연 3: 방치물 감지
@@ -60,7 +60,7 @@
 
 ### 기대 결과
 
-- `ABANDONED_OBJECT`
+- `abandoned_object`
 - 화면 경고 표시
 - CSV 로그 저장
 - snapshot 저장
@@ -75,8 +75,8 @@
 
 ### 기대 결과
 
-- `SUSPICIOUS_APPROACH`
-- `THEFT_SUSPECTED`
+- `suspicious_approach`
+- `theft_suspected`
 - CSV 로그 저장
 - snapshot 저장
 

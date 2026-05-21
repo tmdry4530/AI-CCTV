@@ -16,7 +16,9 @@ EVENT_COLORS = {
     "owner_registered": (255, 255, 0),
     "abandoned_object": (0, 165, 255),
     "suspicious_approach": (0, 255, 255),
+    "object_removed": (80, 80, 255),
     "theft_suspected": (0, 0, 255),
+    "object_returned": (80, 255, 80),
 }
 
 

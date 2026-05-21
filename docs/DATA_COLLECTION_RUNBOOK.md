@@ -50,11 +50,22 @@ python scripts/auto_label_yolo.py --images data/frames --out data/autolabels --c
 
 This uses local YOLO inference. It does not upload images.
 
-## 6. Review labels
+## 6. Review labels and export accepted pairs
+
+Review labels in the UI:
 
 ```bash
 streamlit run tools/label_review_app.py
 ```
+
+Export only accepted reviewed image/label pairs into a `split_dataset.py`-consumable tree:
+
+```bash
+python tools/label_review_app.py --export --image-root data/frames --label-root data/autolabels/labels --state data/reviewed/review_state.json --out data/reviewed --clean
+```
+
+Rejected and unreviewed items are excluded from export. The export writes `data/reviewed/images/`,
+`data/reviewed/labels/`, and `data/reviewed/review_manifest.csv`.
 
 Minimum review priority:
 
@@ -69,7 +80,7 @@ Validation/test labels must be human-reviewed.
 ## 7. Split by video/scenario and check
 
 ```bash
-python scripts/split_dataset.py --source data/reviewed --out data/datasets/ai_cctv --strategy by-video
+python scripts/split_dataset.py --source data/reviewed --out data/datasets/ai_cctv --strategy by-video --clean
 python scripts/check_dataset.py --data data/datasets/ai_cctv.yaml
 ```
 

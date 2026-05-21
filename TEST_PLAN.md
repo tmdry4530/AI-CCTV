@@ -28,7 +28,7 @@
 T0: person1 + bag1 등장
 T1-T4: person1이 bag1 근처 유지
 T5: person1과 bag1 모두 화면에 있음
-Expected: OWNER_REGISTERED only, no abandoned
+Expected: owner_registered only, no abandoned
 ```
 
 ### Sequence B: 방치물
@@ -38,7 +38,7 @@ T0: person1 + bag1 등장
 T1-T4: owner 등록
 T5: person1 사라짐, bag1 남음
 T10: bag1 계속 남음
-Expected: ABANDONED_OBJECT
+Expected: abandoned_object
 ```
 
 ### Sequence C: 도난 의심
@@ -47,7 +47,7 @@ Expected: ABANDONED_OBJECT
 T0-T10: bag1 abandoned 상태
 T11-T13: person2가 bag1 근처 접근
 T14-T17: bag1 사라짐
-Expected: SUSPICIOUS_APPROACH, THEFT_SUSPECTED
+Expected: suspicious_approach, theft_suspected
 ```
 
 ### Sequence D: 단순 지나감
@@ -56,7 +56,7 @@ Expected: SUSPICIOUS_APPROACH, THEFT_SUSPECTED
 T0-T10: bag1 abandoned 상태
 T11: person2가 잠깐 지나감
 T12: person2 멀어짐, bag1 그대로 있음
-Expected: no THEFT_SUSPECTED
+Expected: no theft_suspected
 ```
 
 ### Sequence E: 잠깐 가려짐
@@ -65,7 +65,7 @@ Expected: no THEFT_SUSPECTED
 T0-T10: bag1 abandoned 상태
 T11: bag1 미탐지
 T12: bag1 다시 탐지
-Expected: no OBJECT_REMOVED, no THEFT_SUSPECTED
+Expected: no object_removed, no theft_suspected
 ```
 
 ## 4. Integration tests

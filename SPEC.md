@@ -79,7 +79,7 @@
 
 ## 6. 이벤트 규칙
 
-### OWNER_REGISTERED
+### owner_registered
 
 조건:
 
@@ -93,10 +93,10 @@ person A와 object B의 중심 거리가 owner_distance_ratio 이내
 
 ```text
 B.owner_id = A.id
-OWNER_REGISTERED 이벤트 발생
+owner_registered 이벤트 발생
 ```
 
-### ABANDONED_OBJECT
+### abandoned_object
 
 조건:
 
@@ -111,10 +111,10 @@ B.owner_id 존재
 
 ```text
 B.status = abandoned
-ABANDONED_OBJECT 이벤트 발생
+abandoned_object 이벤트 발생
 ```
 
-### SUSPICIOUS_APPROACH
+### suspicious_approach
 
 조건:
 
@@ -127,10 +127,10 @@ B.status = abandoned
 결과:
 
 ```text
-SUSPICIOUS_APPROACH 이벤트 발생
+suspicious_approach 이벤트 발생
 ```
 
-### THEFT_SUSPECTED
+### theft_suspected
 
 조건 A:
 
@@ -151,7 +151,7 @@ B.status = abandoned
 결과:
 
 ```text
-THEFT_SUSPECTED 이벤트 발생
+theft_suspected 이벤트 발생
 ```
 
 ## 7. 기본 threshold

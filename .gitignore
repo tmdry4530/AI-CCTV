@@ -48,8 +48,13 @@ venv/
 /models/*.mlpackage
 /runs/
 
-# Local/runtime state noise
-.codex/logs*.sqlite*
+# Codex/OMX local runtime state. Keep .codex/goals/*.md tracked separately when added.
+.codex/*.sqlite
 .codex/*.sqlite-shm
 .codex/*.sqlite-wal
+.codex/logs*.sqlite*
+.omx/state/
 .omx/logs/
+.omx/artifacts/
+.omx/*.sqlite*
+.omx/*.json

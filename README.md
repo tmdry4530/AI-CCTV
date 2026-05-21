@@ -57,6 +57,21 @@ into modules/scripts.
 COCO bootstrap aliases such as `backpack`, `handbag`, `suitcase`, and `cell phone` are normalized
 into the project classes during auto-labeling/runtime adaptation.
 
+## Canonical event names
+
+Logs, tests, dashboard rows, and code use lowercase snake_case event names:
+
+```text
+owner_registered
+abandoned_object
+suspicious_approach
+object_removed
+theft_suspected
+object_returned
+```
+
+Uppercase names, if shown in slides or overlays, are display aliases only.
+
 ## Setup: Windows development
 
 ```powershell
@@ -132,7 +147,8 @@ python scripts/record_webcam.py --out data/raw/mac_bag_owner_leave_01.mp4 --widt
 python scripts/extract_frames.py --source data/raw/mac_bag_owner_leave_01.mp4 --out data/frames/mac_bag_owner_leave_01 --every-n 10
 python scripts/auto_label_yolo.py --images data/frames --out data/autolabels --classes person bag laptop cell_phone
 streamlit run tools/label_review_app.py
-python scripts/split_dataset.py --source data/reviewed --out data/datasets/ai_cctv --strategy by-video
+python tools/label_review_app.py --export --image-root data/frames --label-root data/autolabels/labels --state data/reviewed/review_state.json --out data/reviewed --clean
+python scripts/split_dataset.py --source data/reviewed --out data/datasets/ai_cctv --strategy by-video --clean
 python scripts/check_dataset.py --data data/datasets/ai_cctv.yaml
 ```
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 from _bootstrap import add_src_to_path
@@ -18,19 +19,26 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--no-display", action="store_true", help="Disable OpenCV window.")
     parser.add_argument("--no-snapshots", action="store_true", help="Do not save event snapshots.")
     parser.add_argument("--dry-run", action="store_true", help="Validate config/model/source and exit.")
+    parser.add_argument("--debug", action="store_true", help="Show Python tracebacks for debugging.")
     return parser
 
 
 def main() -> int:
     args = build_parser().parse_args()
-    return run_runtime(
-        config_path=args.config,
-        source=args.source,
-        display=not args.no_display,
-        save_snapshots=not args.no_snapshots,
-        max_frames=args.max_frames,
-        dry_run=args.dry_run,
-    )
+    try:
+        return run_runtime(
+            config_path=args.config,
+            source=args.source,
+            display=not args.no_display,
+            save_snapshots=not args.no_snapshots,
+            max_frames=args.max_frames,
+            dry_run=args.dry_run,
+        )
+    except (FileNotFoundError, RuntimeError) as exc:
+        if args.debug:
+            raise
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

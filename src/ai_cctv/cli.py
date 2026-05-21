@@ -22,11 +22,11 @@ def validate_runtime_inputs(
     require_source_file: bool = False,
 ) -> None:
     cfg = load_config(config_path)
-    ensure_model_available(cfg.model.path, allow_builtin_name=False)
     if require_source_file and source is not None:
         text = str(source)
         if not text.isdigit() and not Path(text).exists():
             raise FileNotFoundError(f"Video source not found: {source}")
+    ensure_model_available(cfg.model.path, allow_builtin_name=False)
 
 
 def run_runtime(

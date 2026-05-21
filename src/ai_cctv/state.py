@@ -13,7 +13,9 @@ EventType = Literal[
     "owner_registered",
     "abandoned_object",
     "suspicious_approach",
+    "object_removed",
     "theft_suspected",
+    "object_returned",
 ]
 
 
