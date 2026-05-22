@@ -10,7 +10,32 @@
 - `configs/demo_mac.yaml`
 - fallback 영상: `data/samples/final_demo.mp4`
 
-## 2. 발표 금지 사항
+## 2. 발표 전 preflight
+
+카메라 화면만 먼저 확인한다. 이 단계는 YOLO 모델, tracker, dataset, CUDA가 없어도 실행된다.
+
+```bash
+python scripts/preview_camera.py --source 0 --width 1280 --height 720 --fps 15
+```
+
+예상 결과:
+
+- OpenCV 창에 MacBook 데모 카메라 화면이 표시된다.
+- 화면에 FPS와 frame size가 표시된다.
+- preview 창에 포커스를 둔 상태에서 `q`를 누르면 종료된다.
+
+발표 자산 검증:
+
+```bash
+python scripts/run_webcam.py --config configs/demo_mac.yaml --dry-run
+python scripts/run_video.py --source data/samples/final_demo.mp4 --config configs/demo_mac.yaml --dry-run
+python scripts/run_dashboard.py --dry-run
+```
+
+`models/best_demo.pt` 또는 `data/samples/final_demo.mp4`가 없으면 성공으로 말하지 말고,
+출력된 missing asset 메시지를 readiness gap으로 설명한다.
+
+## 3. 발표 금지 사항
 
 발표 당일에는 하지 않는다.
 
@@ -24,7 +49,14 @@
 데이터셋 수정
 ```
 
-## 3. 시연 1: 기본 탐지
+표현 금지:
+
+- 얼굴 인식 또는 사람 신원 식별을 한다고 말하지 않는다.
+- 실제 도난을 확정한다고 말하지 않는다.
+- 이벤트 이름은 `theft_suspected` 또는 도난 의심으로만 설명한다.
+- 측정 전 mAP/FPS 수치를 말하지 않는다.
+
+## 4. 시연 1: 기본 탐지
 
 ### 절차
 
@@ -38,7 +70,7 @@
 - bag/laptop/cell_phone 박스 표시
 - track ID 표시
 
-## 4. 시연 2: Owner 등록
+## 5. 시연 2: Owner 등록
 
 ### 절차
 
@@ -50,7 +82,7 @@
 - `owner_registered`
 - object label에 owner 표시
 
-## 5. 시연 3: 방치물 감지
+## 6. 시연 3: 방치물 감지
 
 ### 절차
 
@@ -65,7 +97,7 @@
 - CSV 로그 저장
 - snapshot 저장
 
-## 6. 시연 4: 도난 의심
+## 7. 시연 4: 도난 의심
 
 ### 절차
 
@@ -80,7 +112,7 @@
 - CSV 로그 저장
 - snapshot 저장
 
-## 7. 시연 5: 대시보드
+## 8. 시연 5: 대시보드
 
 ### 절차
 
@@ -95,7 +127,7 @@ python scripts/run_dashboard.py
 - snapshot path 표시
 - 캡처 이미지 표시
 
-## 8. Fallback
+## 9. Fallback
 
 웹캠이나 조명이 실패하면 sample video로 전환한다.
 
@@ -103,7 +135,15 @@ python scripts/run_dashboard.py
 python scripts/run_video.py --source data/samples/final_demo.mp4 --config configs/demo_mac.yaml
 ```
 
-## 9. 발표 설명 포인트
+sample video가 없으면 다음 메시지가 나와야 한다.
+
+```text
+ERROR: Video source not found: data/samples/final_demo.mp4
+```
+
+이 경우 sample video가 아직 준비되지 않은 readiness gap이라고 설명한다.
+
+## 10. 발표 설명 포인트
 
 ```text
 이 프로젝트는 단순 객체 탐지가 아니라,
@@ -111,7 +151,7 @@ python scripts/run_video.py --source data/samples/final_demo.mp4 --config config
 방치물과 도난 의심 이벤트를 판정하는 시스템이다.
 ```
 
-## 10. 한계 설명
+## 11. 한계 설명
 
 - 실제 도난 판정이 아니라 도난 의심 이벤트다.
 - 얼굴 인식과 신원 식별은 하지 않는다.

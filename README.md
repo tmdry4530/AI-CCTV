@@ -115,11 +115,28 @@ python -m pytest
 MacBook demo uses `mps` when available and falls back to `cpu`. CUDA is not required for runtime or
 tests.
 
+### Camera preview smoke test before model training
+
+Use this to verify the MacBook demo camera, framing, resolution, and FPS before
+`models/best_demo.pt` exists:
+
+```bash
+python scripts/preview_camera.py --source 0 --width 1280 --height 720 --fps 15
+```
+
+Expected behavior: an OpenCV window opens with the live camera feed, FPS, frame size, and
+`Press q to exit` overlay. Press `q` while the preview window is focused to exit cleanly.
+
+If macOS reports that the camera cannot be opened, grant camera permission to the terminal app you
+are using (`Terminal`, `iTerm`, VS Code, or the Python launcher) in **System Settings → Privacy &
+Security → Camera**, then restart the terminal and run the command again.
+
 ## Required verification before claiming completion
 
 ```bash
 python -m pytest
 python -m compileall src scripts tools
+python scripts/preview_camera.py --help
 python scripts/check_dataset.py --help
 python scripts/train_yolo.py --help
 python scripts/validate_yolo.py --help
@@ -130,6 +147,7 @@ Broader readiness help smoke checks:
 
 ```bash
 python scripts/record_webcam.py --help
+python scripts/preview_camera.py --help
 python scripts/extract_frames.py --help
 python scripts/auto_label_yolo.py --help
 python scripts/split_dataset.py --help
@@ -173,6 +191,12 @@ python scripts/benchmark_model.py --model models/best_demo.pt --source 0 --dry-r
 
 ## Runtime demo commands
 
+Camera preview without YOLO/model/tracker/CUDA:
+
+```bash
+python scripts/preview_camera.py --source 0 --width 1280 --height 720 --fps 15
+```
+
 Webcam:
 
 ```bash
@@ -198,11 +222,18 @@ streamlit run src/ai_cctv/app.py
 ```bash
 python scripts/record_webcam.py --out data/raw/test.mp4 --dry-run
 python scripts/auto_label_yolo.py --images data/frames --out data/autolabels --dry-run
-python scripts/run_dashboard.py --no-launch
+python scripts/run_dashboard.py --dry-run
 ```
 
 Runtime `--dry-run` validates config/model/source and therefore requires the referenced local model
 and source files to exist; it should fail clearly until final assets are prepared.
+
+Runtime asset-validation examples:
+
+```bash
+python scripts/run_webcam.py --config configs/demo_mac.yaml --dry-run
+python scripts/run_video.py --source data/samples/final_demo.mp4 --config configs/demo_mac.yaml --dry-run
+```
 
 ## Missing-data behavior
 

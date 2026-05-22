@@ -1,3 +1,6 @@
+# Presentation-safe MacBook demo defaults.
+# Runtime chooses mps when available and falls back to cpu; CUDA is not required.
+# Keep paths local and do not claim readiness until models/best_demo.pt exists and is measured.
 camera:
   source: 0
   width: 1280
