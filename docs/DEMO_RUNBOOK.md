@@ -5,7 +5,29 @@
 Final MacBook demo checklist and execution path. MacBook is the final demo environment and fallback
 implementation environment when Windows-specific issues block progress.
 
-## 1. Required assets before claiming demo readiness
+## 1. Camera preview smoke test before model training
+
+Run this before a trained model exists to verify the MacBook demo camera, framing, and basic OpenCV
+display path:
+
+```bash
+python scripts/preview_camera.py --source 0 --width 1280 --height 720 --fps 15
+```
+
+Expected behavior:
+
+- an OpenCV window opens with the live camera feed;
+- FPS is drawn on screen;
+- frame size is drawn on screen;
+- pressing `q` while the preview window is focused exits cleanly.
+
+This command must not require YOLO, model weights, tracker state, dataset files, or CUDA.
+
+Known Mac camera permission issue: if the command reports that camera source `0` cannot be opened,
+grant camera access to the terminal app you are using (`Terminal`, `iTerm`, VS Code, or the Python
+launcher) in **System Settings → Privacy & Security → Camera**, restart the terminal, and try again.
+
+## 2. Required assets before claiming demo readiness
 
 ```text
 models/best_demo.pt
@@ -17,7 +39,7 @@ data/snapshots/ directory
 
 If any required asset is missing, report it as a readiness gap instead of claiming demo success.
 
-## 2. MacBook environment
+## 3. MacBook environment
 
 ```bash
 python3 -m venv .venv
@@ -35,7 +57,7 @@ mps if available
 cpu fallback
 ```
 
-## 3. Benchmark final model
+## 4. Benchmark final model
 
 ```bash
 python scripts/benchmark_model.py --model models/best_demo.pt --source 0 --imgsz 640
@@ -43,19 +65,19 @@ python scripts/benchmark_model.py --model models/best_demo.pt --source 0 --imgsz
 
 Target: MacBook FPS >= 10. Use measured output only.
 
-## 4. Webcam demo
+## 5. Webcam demo
 
 ```bash
 python scripts/run_webcam.py --config configs/demo_mac.yaml
 ```
 
-## 5. Fallback sample-video demo
+## 6. Fallback sample-video demo
 
 ```bash
 python scripts/run_video.py --source data/samples/final_demo.mp4 --config configs/demo_mac.yaml
 ```
 
-## 6. Dashboard
+## 7. Dashboard
 
 ```bash
 python scripts/run_dashboard.py
@@ -63,7 +85,7 @@ python scripts/run_dashboard.py
 streamlit run src/ai_cctv/app.py
 ```
 
-## 7. Presentation flow
+## 8. Presentation flow
 
 1. Show that the system tracks person/object IDs.
 2. Owner stays near object long enough to register.
@@ -74,7 +96,7 @@ streamlit run src/ai_cctv/app.py
 7. System emits `theft_suspected`.
 8. Show CSV log, snapshot, and dashboard.
 
-## 8. Presentation-day freeze
+## 9. Presentation-day freeze
 
 Do not train a new model, install new packages, change camera angle, change thresholds, or introduce
 new object types during the live presentation.

@@ -6,6 +6,7 @@ from pathlib import Path
 
 SCRIPTS = [
     "run_webcam.py",
+    "preview_camera.py",
     "run_video.py",
     "run_dashboard.py",
     "record_webcam.py",

@@ -13,6 +13,9 @@ Complete readiness-first Webcam AI CCTV implementation from `.codex/goals/ai-cct
   `theft_suspected`, passing-by, occlusion grace, and logging/dataset checks.
 - Runtime, dashboard, data collection, auto-labeling, dataset split/check, training, validation, and
   benchmark scripts exist and support `--help`.
+- `run_video.py` and `run_webcam.py` support asset-validation `--dry-run` with clear missing
+  model/source errors; `run_dashboard.py` supports `--dry-run` without launching Streamlit.
+- `scripts/preview_camera.py` provides a MacBook camera preview smoke test before model training.
 - Data/model directories are scaffolded with tracked placeholders.
 - README and runbooks document Windows RTX training and MacBook demo paths.
 
@@ -34,6 +37,7 @@ Run before final completion report:
 ```bash
 python -m pytest
 python -m compileall src scripts tools
+python scripts/preview_camera.py --help
 python scripts/check_dataset.py --help
 python scripts/train_yolo.py --help
 python scripts/validate_yolo.py --help
